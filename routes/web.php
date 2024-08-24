@@ -7,6 +7,7 @@ use App\Http\Controllers\FriendController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\FriendRequestController;
 
@@ -34,3 +35,4 @@ Route::middleware(['auth', 'paid'])->group(function () {
 });
 
 Route::get('/home', [SearchController::class, 'search'])->name('user.index');
+Route::post('/switch-locale', [LocalizationController::class, 'switchLocale'])->name('locale.switch');

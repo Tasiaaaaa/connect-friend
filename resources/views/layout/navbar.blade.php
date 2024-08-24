@@ -30,7 +30,17 @@
                     <li class="nav-item">
                         <a class="nav-link @yield('activeFriend')" href="{{ route('friend.index') }}">Friends</a>
                     </li>
+                    <li class="nav-item mt-2">
+                        <form action="{{ route('locale.switch') }}" method="POST" style="background-color:transparent; border:none">
+                            @csrf
+                            <select name="locale" onchange="this.form.submit()" style="background-color: transparent; border: none">
+                                <option value="en" {{ session('locale') === 'en' ? 'selected' : '' }}>English</option>
+                                <option value="id" {{ session('locale') === 'id' ? 'selected' : '' }}>Indonesian</option>
+                            </select>
+                        </form>
+                    </li>
                 </ul>
+                
                 @if (Auth::check())
                     <div class="d-flex align-items-center">
                         <span class="text-light me-3">Welcome, {{ Auth::user()->name }}!</span>

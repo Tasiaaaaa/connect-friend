@@ -1,6 +1,6 @@
 @extends('layout.navbar')
 
-@section('title', 'Home')
+@section('title', __('Home'))
 @section('activeHome', 'active')
 
 @section('content')
@@ -9,7 +9,7 @@
     @endif
 
     <div class="container">
-        <h3>Notifications</h3>
+        <h3>{{ __('Notifications') }}</h3>
         <div class="alert alert-info">
             <ul class="list-unstyled mb-0">
                 @forelse (Auth::user()->notifications as $notification)
