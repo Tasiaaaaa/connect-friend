@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
 class NotificationController extends Controller
@@ -61,6 +62,9 @@ class NotificationController extends Controller
     public function destroy(string $id)
     {
         //
+        $loc = session()->get('locale');
+        App::setLocale($loc);
+
         $notification = Auth::user()->notifications()->find($id);
 
         if ($notification) {

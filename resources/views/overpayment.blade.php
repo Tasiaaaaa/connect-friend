@@ -14,7 +14,7 @@
 
     <div class="card shadow-sm" style="width: 100%; max-width: 500px;">
         <div class="card-body text-center">
-            <h1 class="card-title mb-4">Overpayment</h1>
+            <h1 class="card-title mb-4">{{ __('messages.Overpayment') }}</h1>
             <p class="mb-4">Sorry, you overpaid ${{ number_format($amount, 2) }}. Would you like to enter a balance?</p>
 
             <form method="POST" action="{{ route('process.overpayment') }}">

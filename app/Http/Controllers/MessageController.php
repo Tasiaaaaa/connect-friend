@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
@@ -31,6 +32,9 @@ class MessageController extends Controller
     public function store(Request $request)
     {
         //
+        $loc = session()->get('locale');
+        App::setLocale($loc);
+
         $senderID = Auth::user()->id;
         $receiverID = $request->input('friend_id');
 
@@ -55,6 +59,9 @@ class MessageController extends Controller
     public function show(string $id)
     {
         //
+        $loc = session()->get('locale');
+        App::setLocale($loc);
+
         $currentUserID = Auth::user()->id;
         $friend = User::findOrFail($id);
 

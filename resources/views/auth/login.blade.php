@@ -15,7 +15,7 @@
 
     <div class="card shadow-sm" style="width: 100%; max-width: 400px;">
         <div class="card-body">
-            <h1 class="card-title text-center mb-4">Login</h1>
+            <h1 class="card-title text-center mb-4">{{ __('messages.Login') }}</h1>
 
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -30,13 +30,13 @@
             <form method="POST" action="{{ url('/login') }}">
                 @csrf
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email:</label>
+                    <label for="email" class="form-label">{{ __('messages.Email:') }}</label>
                     <input type="email" id="email" name="email" class="form-control" value="{{ old('email') }}"
                         required autofocus>
                 </div>
 
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password:</label>
+                    <label for="password" class="form-label">{{ __('messages.Password:') }}</label>
                     <div class="d-flex pass-show-hide justify-content-between gap-2 position-relative">
                         <input autocomplete="new-password" id='password' name='password' style="width: 100%" required
                             type='password' class="form-control">
@@ -47,10 +47,10 @@
                 </div>
 
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary">{{ __('messages.Login') }}</button>
                 </div>
-                <p class="text-center mt-2">Don't have an account?<a class="text-black"
-                    href="{{ route('register') }}"> Register</a></p>
+                <p class="text-center mt-2">{{ __('messages.Dont have an account?') }}<a class="text-black"
+                    href="{{ route('register') }}"> {{ __('messages.Register') }}</a></p>
             </form>
         </div>
     </div>

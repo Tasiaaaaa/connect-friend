@@ -15,7 +15,7 @@
 
     <div class="card shadow-sm" style="width: 100%; max-width: 600px;">
         <div class="card-body">
-            <h1 class="card-title text-center mb-4">Register</h1>
+            <h1 class="card-title text-center mb-4">{{ __('messages.Register') }}</h1>
 
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -30,19 +30,19 @@
             <form method="POST" action="{{ url('/register') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name:</label>
+                    <label for="name" class="form-label">{{ __('messages.Name:') }}</label>
                     <input type="text" id="name" name="name" class="form-control" value="{{ old('name') }}"
                         required autofocus>
                 </div>
 
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email:</label>
+                    <label for="email" class="form-label">{{ __('messages.Email:') }}</label>
                     <input type="email" id="email" name="email" class="form-control" value="{{ old('email') }}"
                         required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password:</label>
+                    <label for="password" class="form-label">{{ __('messages.Password:') }}</label>
                     <div class="d-flex pass-show-hide justify-content-between gap-2 position-relative">
                         <input autocomplete="new-password" id='password' name='password' style="width: 100%" required
                             type='password' class="form-control">
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="password_confirmation" class="form-label">Confirm Password:</label>
+                    <label for="password_confirmation" class="form-label">{{ __('messages.Confirm Password:') }}</label>
                     <div class="d-flex pass-show-hide justify-content-between gap-2 position-relative">
                         <input autocomplete="new-password" id='password_confirmation' name='password_confirmation' style="width: 100%" required
                             type='password' class="form-control">
@@ -64,58 +64,58 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="gender" class="form-label">Gender:</label>
+                    <label for="gender" class="form-label">{{ __('messages.Gender:') }}</label>
                     <select id="gender" name="gender" class="form-select" required>
-                        <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male</option>
-                        <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Female</option>
+                        <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>{{ __('messages.Male') }}</option>
+                        <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>{{ __('messages.Female') }}</option>
                     </select>
                 </div>
 
                 <div class="mb-3">
-                    <label for="instagram_username" class="form-label">Instagram Username:</label>
+                    <label for="instagram_username" class="form-label">{{ __('messages.Instagram Username:') }}</label>
                     <input type="text" id="instagram_username" name="instagram_username" class="form-control"
                         value="{{ old('instagram_username') }}" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="hobbies" class="form-label">Hobbies:</label>
+                    <label for="hobbies" class="form-label">{{ __('messages.Hobbies:') }}</label>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" name="hobbies[]" value="Reading">
-                        <label class="form-check-label">Reading</label>
+                        <label class="form-check-label">{{ __('messages.Reading') }}</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" name="hobbies[]" value="Traveling">
-                        <label class="form-check-label">Traveling</label>
+                        <label class="form-check-label">{{ __('messages.Traveling') }}</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" name="hobbies[]" value="Gardening">
-                        <label class="form-check-label">Gardening</label>
+                        <label class="form-check-label">{{ __('messages.Gardening') }}</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" name="hobbies[]" value="Gaming">
-                        <label class="form-check-label">Gaming</label>
+                        <label class="form-check-label">{{ __('messages.Gaming') }}</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" name="hobbies[]" value="Coding">
-                        <label class="form-check-label">Coding</label>
+                        <label class="form-check-label">{{ __('messages.Coding') }}</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" name="hobbies[]" value="Dancing">
-                        <label class="form-check-label">Dancing</label>
+                        <label class="form-check-label">{{ __('messages.Dancing') }}</label>
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <label for="mobile_number" class="form-label">Mobile Number:</label>
+                    <label for="mobile_number" class="form-label">{{ __('messages.Mobile Number:') }}</label>
                     <input type="text" id="mobile_number" name="mobile_number" class="form-control"
                         value="{{ old('mobile_number') }}" required pattern="\d+">
                 </div>
 
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="submit" class="btn btn-primary">{{ __('messages.Register') }}</button>
                 </div>
-                <p class="text-center mt-2">Already have an account?<a class="text-black"
-                    href="{{ route('login') }}">Log in</a></p>
+                <p class="text-center mt-2">{{ __('messages.Already have an account?') }}<a class="text-black"
+                    href="{{ route('login') }}">{{ __('messages.Log in') }}</a></p>
             </form>
         </div>
     </div>

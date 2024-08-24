@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FriendController;
@@ -35,4 +36,4 @@ Route::middleware(['auth', 'paid'])->group(function () {
 });
 
 Route::get('/home', [SearchController::class, 'search'])->name('user.index');
-Route::post('/switch-locale', [LocalizationController::class, 'switchLocale'])->name('locale.switch');
+Route::get('/switch-locale/{locale}', [LocalizationController::class, 'switchLocale'])->name('locale.switch');

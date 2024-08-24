@@ -6,6 +6,7 @@ use Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
 
 class UserController extends Controller
 {
@@ -15,6 +16,9 @@ class UserController extends Controller
     public function index(Request $request)
     {
         //
+        $loc = session()->get('locale');
+        App::setLocale($loc);
+
         $currentUserID = Auth::user()->id;
         
         $searchTerm = $request->input('search');

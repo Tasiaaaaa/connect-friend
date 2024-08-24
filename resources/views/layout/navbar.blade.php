@@ -22,37 +22,37 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link @yield('activeHome')" href="{{ route('user.index') }}">Home</a>
+                        <a class="nav-link @yield('activeHome')" href="{{ route('user.index') }}">{{ __('messages.Home') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @yield('activeRequest')" href="{{ route('friend-request.index') }}">Requests</a>
+                        <a class="nav-link @yield('activeRequest')" href="{{ route('friend-request.index') }}">{{ __('messages.Requests') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @yield('activeFriend')" href="{{ route('friend.index') }}">Friends</a>
+                        <a class="nav-link @yield('activeFriend')" href="{{ route('friend.index') }}">{{ __('messages.Friends') }}</a>
                     </li>
-                    <li class="nav-item mt-2">
-                        <form action="{{ route('locale.switch') }}" method="POST" style="background-color:transparent; border:none">
-                            @csrf
-                            <select name="locale" onchange="this.form.submit()" style="background-color: transparent; border: none">
-                                <option value="en" {{ session('locale') === 'en' ? 'selected' : '' }}>English</option>
-                                <option value="id" {{ session('locale') === 'id' ? 'selected' : '' }}>Indonesian</option>
-                            </select>
-                        </form>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ __('messages.Language') }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ route('locale.switch', 'en') }}">English</a></li>
+                            <li><a class="dropdown-item" href="{{ route('locale.switch', 'id') }}">Indonesian</a></li>
+                        </ul>
                     </li>
                 </ul>
                 
                 @if (Auth::check())
                     <div class="d-flex align-items-center">
-                        <span class="text-light me-3">Welcome, {{ Auth::user()->name }}!</span>
+                        <span class="text-light me-3">{{ __('messages.Welcome') }}, {{ Auth::user()->name }}!</span>
                         <form method="POST" action="{{ url('/logout') }}">
                             @csrf
-                            <button type="submit" class="btn btn-outline-light">Logout</button>
+                            <button type="submit" class="btn btn-outline-light">{{ __('messages.Logout') }}</button>
                         </form>
                     </div>
                 @else
                     <div class="d-flex">
-                        <a href="{{ url('/login') }}" class="btn btn-outline-light me-2">Login</a>
-                        <a href="{{ url('/register') }}" class="btn btn-primary">Register</a>
+                        <a href="{{ url('/login') }}" class="btn btn-outline-light me-2">{{ __('messages.Login') }}</a>
+                        <a href="{{ url('/register') }}" class="btn btn-primary">{{ __('messages.Register') }}</a>
                     </div>
                 @endif
             </div>

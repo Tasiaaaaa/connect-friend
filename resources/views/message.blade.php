@@ -37,7 +37,7 @@
                         <input type="text" name="new_message" class="form-control" placeholder="Enter your message"
                             required>
                         <input type="hidden" name="friend_id" value="{{ $friend->id }}">
-                        <button type="submit" class="btn btn-primary">Send</button>
+                        <button type="submit" class="btn btn-primary">{{ __('messages.Send') }}</button>
                     </div>
                 </form>
             </div>

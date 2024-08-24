@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -11,10 +12,16 @@ class AuthController extends Controller
 {
     //
     public function showRegistrationForm(){
+        $loc = session()->get('locale');
+        App::setLocale($loc);
+
         return view('auth.register');
     }
     public function register(Request $request)
-    {
+    {  
+        $loc = session()->get('locale');
+        App::setLocale($loc);
+
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -44,11 +51,17 @@ class AuthController extends Controller
     }
 
     public function showLoginForm(){
+        $loc = session()->get('locale');
+        App::setLocale($loc);
+
         return view('auth.login');
     }
 
     public function login(Request $request)
     {
+        $loc = session()->get('locale');
+        App::setLocale($loc);
+
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
@@ -69,6 +82,9 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
+        $loc = session()->get('locale');
+        App::setLocale($loc);
+
         Auth::logout();
 
         $request->session()->invalidate();
@@ -80,6 +96,9 @@ class AuthController extends Controller
 
     public function update_paid(Request $request)
     {
+        $loc = session()->get('locale');
+        App::setLocale($loc);
+
         $validatedData = $request->validate([
             'payment_amount' => 'required|numeric|min:0',
             'price' => 'required|numeric',
@@ -108,6 +127,9 @@ class AuthController extends Controller
 
     public function handleOverpayment(Request $request)
     {
+        $loc = session()->get('locale');
+        App::setLocale($loc);
+
         $amount = $request->input('amount');
         $paymentAmount = $request->input('payment_amount');
         $price = $request->input('price');
@@ -121,6 +143,9 @@ class AuthController extends Controller
 
     public function processOverpayment(Request $request)
     {
+        $loc = session()->get('locale');
+        App::setLocale($loc);
+
         $action = $request->input('action');
         $paymentAmount = $request->input('payment_amount');
         $price = $request->input('price');

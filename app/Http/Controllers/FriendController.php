@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Friend;
 use Illuminate\Http\Request;
 use App\Models\FriendRequest;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Notifications\FriendRequestAccepted;
 
@@ -17,6 +18,9 @@ class FriendController extends Controller
     public function index()
     {
         //
+        $loc = session()->get('locale');
+        App::setLocale($loc);
+
         $currentUserID = Auth::user()->id;
         $dataFriend = Friend::where('user_id', '=', $currentUserID)
             ->join('users', 'users.id', '=', 'friends.friend_id')
@@ -39,6 +43,9 @@ class FriendController extends Controller
     public function store(Request $request)
     {
         //
+        $loc = session()->get('locale');
+        App::setLocale($loc);
+
         $currentUserID = Auth::user()->id;
         $friendID = $request->input('friend_id');
         $request_id = $request->input('request_id');

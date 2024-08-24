@@ -1,6 +1,6 @@
 @extends('layout.navbar')
 
-@section('title', __('Home'))
+@section('title', __('messages.Home'))
 @section('activeHome', 'active')
 
 @section('content')
@@ -9,7 +9,7 @@
     @endif
 
     <div class="container">
-        <h3>{{ __('Notifications') }}</h3>
+        <h3>{{ __('messages.Notifications') }}</h3>
         <div class="alert alert-info">
             <ul class="list-unstyled mb-0">
                 @forelse (Auth::user()->notifications as $notification)
@@ -28,7 +28,7 @@
                         </form>
                     </li>
                 @empty
-                    <li>No new notifications</li>
+                    <li>{{ __('messages.No new notifications') }}</li>
                 @endforelse
             </ul>
         </div>
@@ -39,17 +39,17 @@
                 <div class="row">
                     <div class="col-md-4">
                         <select name="gender" class="form-control">
-                            <option value="">{{ __('Select Gender') }}</option>
-                            <option value="Male">{{ __('Male') }}</option>
-                            <option value="Female">{{ __('Female') }}</option>
+                            <option value="">{{ __('messages.Select Gender') }}</option>
+                            <option value="Male">{{ __('messages.Male') }}</option>
+                            <option value="Female">{{ __('messages.Female') }}</option>
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <input type="text" name="hobbies" class="form-control" placeholder="{{ __('Enter hobbies separated by commas') }}"
+                        <input type="text" name="hobbies" class="form-control" placeholder="{{ __('messages.Enter hobbies separated by commas') }}"
                             value="{{ request('hobbies') }}">
                     </div>
                     <div class="col-md-4">
-                        <button type="submit" class="btn btn-primary w-100">{{ __('Search') }}</button>
+                        <button type="submit" class="btn btn-primary w-100">{{ __('messages.Search') }}</button>
                     </div>
                 </div>
             </form>
@@ -65,7 +65,7 @@
                             <form method="POST" action="{{ route('friend-request.store') }}" class="mt-auto">
                                 @csrf
                                 <input type="hidden" name="receiver_id" value="{{ $user->id }}">
-                                <button type="submit" class="btn btn-primary w-100">Send Request</button>
+                                <button type="submit" class="btn btn-primary w-100">{{ __('messages.Thumb') }}</button>
                             </form>
                         </div>
                     </div>

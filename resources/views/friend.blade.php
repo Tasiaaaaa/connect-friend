@@ -18,7 +18,7 @@
                             <h5 class="card-title">{{ $user->name }}</h5>
                             <p class="card-text">{{ $user->fields_of_work }}</p>
                             <a href="{{ route('message.show', $user->id) }}"
-                                class="btn btn-primary mt-auto w-100">Message</a>
+                                class="btn btn-primary mt-auto w-100">{{ __('messages.Message') }}</a>
                         </div>
                     </div>
                 </div>
